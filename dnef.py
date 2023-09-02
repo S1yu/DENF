@@ -1,10 +1,6 @@
 from boost import Boost
 def deepboost(xtrain1,xtrain2,xtrain3,ytrain1,ytrain2,ytrain3,has_weight=True,delsample=False,layers=3,base_estimator=None):
-    log.info(" x shape:{}".format(str(xtrain1.shape)))
-    log.info(" x shape:{}".format(str(xtrain2.shape)))
     layer=layers
-
-
     boost1 = Boost(algorithm="SAMME", n_estimators=layers,base_estimator=base_estimator,hasweight=has_weight,random_state=42)
     boost2 = Boost(algorithm="SAMME", n_estimators=layers,base_estimator=base_estimator,hasweight=has_weight,random_state=43)
     boost3 = Boost(algorithm="SAMME", n_estimators=layers,base_estimator=base_estimator,hasweight=has_weight,random_state=44)
