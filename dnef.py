@@ -1,4 +1,25 @@
 from boost import Boost
+
+adaboost3_score=[]
+adaboost4_score=[]
+adaboost5_score=[]
+adaboost_4_score=[]
+boost1_score=[]
+boost2_score=[]
+boost_3_score=[]
+ensemble_score1=[]
+ensemble_score2=[]
+ensemble_score3=[]
+ensemble_auc0=[]
+ensemble_auc1=[]
+ensemble_auc2=[]
+ensemble_f10=[]
+ensemble_f11=[]
+ensemble_ALL_auc=[]
+ensemble_ALL_pre=[]
+ensemble_ALL_recall=[]
+ensemble_ALL_log=[]
+
 def deepboost(xtrain1,xtrain2,xtrain3,ytrain1,ytrain2,ytrain3,has_weight=True,delsample=False,layers=3,base_estimator=None):
     layer=layers
     boost1 = Boost(algorithm="SAMME", n_estimators=layers,base_estimator=base_estimator,hasweight=has_weight,random_state=42)
@@ -194,7 +215,7 @@ def final_ensembe(boost1,boost2=None,boost3=None,e=0.7):
 # no noml : 8537 8527
 from sklearn.model_selection import *
 kf=KFold(n_splits=Fold,shuffle=True,random_state=42)
-dct6=DecisionTreeClassifier(max_depth=5)
+dct5=DecisionTreeClassifier(max_depth=5)
 
 def kf_predict(X,Y):
     for train_index ,test_index in kf.split(X,Y):
